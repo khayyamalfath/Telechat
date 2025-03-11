@@ -15,4 +15,3 @@ app.UseStaticFiles();
 app.MapHub<ChatHub>("/chatHub");
 
 app.Run();
-
