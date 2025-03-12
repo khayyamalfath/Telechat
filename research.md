@@ -1,14 +1,14 @@
 # research
 ## Project folder structure
 - https://www.linkedin.com/pulse/structuring-folders-your-backend-project-best-practices-lokesh-sharma
-# Static files
+## Static files
 - https://learn.microsoft.com/en-us/aspnet/core/fundamentals/static-files?view=aspnetcore-9.0&preserve-view=true
-# Routing, Minimal APIs
+## Routing, Minimal APIs
 - https://learn.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-9.0
 - https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis/overview?view=aspnetcore-9.0
 - https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-9.0&preserve-view=true
 - https://blog.jetbrains.com/dotnet/2023/04/25/introduction-to-asp-net-core-minimal-apis/
-# SignalR
+## SignalR
 - https://dotnet.microsoft.com/en-us/apps/aspnet/signalr
 - https://learn.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-9.0
 - https://learn.microsoft.com/en-us/aspnet/core/tutorials/signalr?view=aspnetcore-9.0&tabs=visual-studio
