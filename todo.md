@@ -1,6 +1,6 @@
 # to do
 - ~~Real time comunication (local)~~
-- Timestamp
+- ~~message timestamp (local for client and utc for server)~~
 - DB (Maria)
 - Real time comunication (db)
 - Logs

@@ -1,4 +1,8 @@
 # log
+## thu 13 mar 2025
+- message timestamp (local for client and utc for server)
+	- Added utc time in ChatHub.cs
+	- Added local time in Telechat.js
 ## wed 12 mar 2025
 - todo.txt -> todo.md
 - log.txt -> log.md

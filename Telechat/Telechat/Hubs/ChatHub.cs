@@ -6,7 +6,8 @@ namespace Telechat.Hubs
     {
         public async Task SendMessage(string user, string message)
         {
-            await Clients.All.SendAsync("ReceiveMessage", user, message);
+            DateTime sentAt = DateTime.UtcNow;
+            await Clients.All.SendAsync("ReceiveMessage", user, message, sentAt);
         }
     }
 }
