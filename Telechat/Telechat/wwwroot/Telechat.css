@@ -1,0 +1,14 @@
+﻿#chatBox {
+    display: grid;
+    grid-template-columns: 200px auto 100px;
+    gap: 1px;
+    padding: 1px;
+}
+
+.chatBoxItem {
+    background-color: lightgrey;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid black;
+    min-height: 334px;
+}

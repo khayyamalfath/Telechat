@@ -1,8 +1,9 @@
 # to do
-- ~~Real time comunication (local)~~
+- ~~Real time communication (local)~~
 - ~~message timestamp (local for client and utc for server)~~
 - DB (Maria)
-- Real time comunication (db)
+- Real time communication (db)
+- Frontend
 - Logs
 - Authentication and log in
 - Authorization and permissions

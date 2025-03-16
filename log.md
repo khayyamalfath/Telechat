@@ -1,4 +1,6 @@
 # log
+## sun 16 mar 2025
+- Frontend
 ## thu 13 mar 2025
 - message timestamp (local for client and utc for server)
 	- Added utc time in ChatHub.cs
