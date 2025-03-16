@@ -1,0 +1,17 @@
+to do
+DB (Maria)
+Real time communication (db)
+Frontend
+Logs
+Authentication and log in
+Authorization and permissions
+Rooms
+Sounds
+Notifications
+Pictures
+Audio
+Docs
+
+done
+Real time communication (local)
+message timestamp (local for client and utc for server)
