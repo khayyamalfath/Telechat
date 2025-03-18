@@ -12,7 +12,7 @@ namespace Telechat.Services
             _connectionString = connectionString;
         }
 
-        public async Task SaveMessageAsync(string username, string message, DateTime sentAt)
+        public async Task SaveMessageAsync(string username, string messageText, DateTime sentAt)
         {
             /* Saves a message to DB */
 
@@ -20,11 +20,11 @@ namespace Telechat.Services
             {
                 await connection.OpenAsync();
 
-                string query = "INSERT INTO Messages (Message, Username, SentAt) VALUES (@Message, @Username, @SentAt)";
+                string query = "INSERT INTO Messages (MessageText, Username, SentAt) VALUES (@MessageText, @Username, @SentAt)";
 
                 using (var cmd = new MySqlCommand(query, connection))
                 {
-                    cmd.Parameters.AddWithValue("@Message", message);
+                    cmd.Parameters.AddWithValue("@MessageText", messageText);
                     cmd.Parameters.AddWithValue("@Username", username);
                     cmd.Parameters.AddWithValue("@SentAt", sentAt);
 
@@ -43,7 +43,7 @@ namespace Telechat.Services
             {
                 await connection.OpenAsync();
 
-                string query = "SELECT Id, Message, Username, SentAt FROM Messages ORDER BY SentAt DESC LIMIT @Limit";
+                string query = "SELECT Id, MessageText, Username, SentAt FROM Messages ORDER BY SentAt DESC LIMIT @Limit";
 
                 using (var cmd = new MySqlCommand(query, connection))
                 {

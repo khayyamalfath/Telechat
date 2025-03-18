@@ -7,7 +7,7 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 document.getElementById("sendButton").disabled = true;
 
 /* Functions */
-function addMessageToChat(username, message, sentAt) {
+function addMessageToChat(username, messageText, sentAt) {
     /* Adds message to chat */
 
     var li = document.createElement("li");
@@ -18,15 +18,15 @@ function addMessageToChat(username, message, sentAt) {
     // We can assign user-supplied strings to an element's textContent because it
     // is not interpreted as markup. If you're assigning in any other way, you
     // should be aware of possible script injection concerns.
-    li.textContent = `${sentAtLocal} - ${username}: ${message}`;
+    li.textContent = `${sentAtLocal} - ${username}: ${messageText}`;
     document.getElementById("messagesList").appendChild(li);
 }
 
 /* SignalR events */
-connection.on("ReceiveMessage", function (username, message, sentAt) {
+connection.on("ReceiveMessage", function (username, messageText, sentAt) {
     /* Handles messages receiving */
 
-    addMessageToChat(username, message, sentAt);
+    addMessageToChat(username, messageText, sentAt);
 });
 
 connection.on("LoadMessages", function (messages) {
@@ -53,9 +53,9 @@ document.getElementById("sendButton").addEventListener("click", function (event)
     /* Sends a message on button press */
 
     var user = document.getElementById("userInput").value;
-    var message = document.getElementById("messageInput").value;
+    var messageText = document.getElementById("messageInput").value;
 
-    connection.invoke("SendMessage", user, message).catch(function (err) {
+    connection.invoke("SendMessage", user, messageText).catch(function (err) {
         return console.error(err.toString());
     });
 

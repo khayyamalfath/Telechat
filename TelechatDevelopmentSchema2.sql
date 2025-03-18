@@ -4,7 +4,7 @@ USE TelechatDevelopment;
  
 CREATE TABLE Messages (
 	Id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	Message TEXT NOT NULL,
+	MessageText TEXT NOT NULL,
 	Username VARCHAR(255) NOT NULL,
 	SentAt DATETIME NOT NULL
 );
@@ -14,4 +14,3 @@ SHOW TABLES;
 SELECT * FROM Messages;
  
 DROP DATABASE TelechatDevelopment;
- 

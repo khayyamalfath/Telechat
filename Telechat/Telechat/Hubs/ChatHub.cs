@@ -13,14 +13,14 @@ namespace Telechat.Hubs
             _messageService = messageService;
         }
 
-        public async Task SendMessage(string username, string message)
+        public async Task SendMessage(string username, string messageText)
         {
             /* Sends a message */
             DateTime sentAt = DateTime.UtcNow;
 
-            await _messageService.SaveMessageAsync(username, message, sentAt);
+            await _messageService.SaveMessageAsync(username, messageText, sentAt);
 
-            await Clients.All.SendAsync("ReceiveMessage", username, message, sentAt);
+            await Clients.All.SendAsync("ReceiveMessage", username, messageText, sentAt);
         }
 
         public async Task LoadPreviousMessages()

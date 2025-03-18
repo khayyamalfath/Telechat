@@ -18,6 +18,8 @@ Added message history
 	Added LoadPreviousMessages() in ChatHub.cs
 	Added addMessageToChat() in Telechat.js
 	Added connection.on("LoadMessages") in Telechat.js
+Created temporary schema for TelechatDevelopment DB (2)
+Changed column name in Messages table from Message to MessageText
 
 sun 16 mar 2025
 Frontend
