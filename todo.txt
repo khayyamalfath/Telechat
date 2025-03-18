@@ -1,6 +1,5 @@
 to do
-DB (Maria)
-Real time communication (db)
+Rename field "Message" to "MessageText" in TelechatDevelopment (DB)
 Frontend
 Logs
 Authentication and log in
@@ -10,8 +9,11 @@ Sounds
 Notifications
 Pictures
 Audio
-Docs
+Write documentation (BE, FE, DB?)
 
 done
 Real time communication (local)
 message timestamp (local for client and utc for server)
+DB (Maria)
+Real time communication (db)
+Message History

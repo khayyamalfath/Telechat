@@ -1,5 +1,24 @@
 log
 
+tue 18 mar 2025
+Renamed user in username
+Created temporary schema for TelechatDevelopment DB (1)
+Added real time communication (DB)
+	Added MySql.Data to the project (MariaDB connector)
+	Added connection string appsettings.json
+	Registered connection string in Program.cs
+	Added Services/
+	Added MessageService.cs
+	Added SaveMessageAsync() in MessageService.cs
+	Added call to SaveMessageAsync() in ChatHub.cs
+	Registered MessageService in Program.cs
+Added message history
+	Added Models/
+	Added GetMessagesAsync() in MessageService.cs
+	Added LoadPreviousMessages() in ChatHub.cs
+	Added addMessageToChat() in Telechat.js
+	Added connection.on("LoadMessages") in Telechat.js
+
 sun 16 mar 2025
 Frontend
 Deleted todo.md
@@ -27,7 +46,7 @@ Initial Commit
 Deleted readme.txt
 Added readme.md
 Research on "MariaDB"
-Created schema for TelechatDevelopment DB
+Created schema for TelechatDevelopment DB (0)
 
 mon 10 mar 2025
 Research on "DB"
@@ -39,12 +58,13 @@ Research on "DB"
 Done: VS solution and project
 Research on "Project folder structure"
 Research on "SignalR"
-Added Real time comunication (local)
+Added real time comunication (local)
 	Added client-side library (SignalR) with LibMan and unpkg in wwwroot/js/
 	Added ChatHub model in Hubs/
-	Added SignalR in Program.cs
-	Added index.html in wwwroot/
-	Added Telechat.js in wwwroot/js
+	Added SendMessage() in ChatHub.cs
+	Registered SignalR in Program.cs
+	Added index.html in wwwroot/ (SignalR template)
+	Added Telechat.js in wwwroot/js (SignalR template)
 Research on "Static files"
 Research on "Routing"
 
