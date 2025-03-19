@@ -10,9 +10,7 @@ USE TelechatDevelopment;
 CREATE TABLE Users (
 	Id INT AUTO_INCREMENT PRIMARY KEY,
 	Name VARCHAR(255) UNIQUE NOT NULL,
-	PasswordHash VARCHAR(255) NOT NULL,
-	Email VARCHAR(255) UNIQUE,
-	PhoneNumber VARCHAR(255) UNIQUE
+	PasswordHash VARCHAR(512) NOT NULL
 );
  
 CREATE TABLE Messages (
@@ -20,11 +18,12 @@ CREATE TABLE Messages (
 	MessageText TEXT NOT NULL,
 	SentAt DATETIME NOT NULL,
 	UserId INT NOT NULL,
-	FOREIGN KEY (UserId) REFERENCES Users(Id),
+	FOREIGN KEY (UserId) REFERENCES Users(Id)
 );
  
 SHOW TABLES;
  
 SELECT * FROM Messages;
+SELECT * FROM Users;
  
 DROP DATABASE TelechatDevelopment;

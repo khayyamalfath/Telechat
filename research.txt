@@ -17,3 +17,15 @@ https://dotnet.microsoft.com/en-us/apps/aspnet/signalr
 https://learn.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-9.0
 https://learn.microsoft.com/en-us/aspnet/core/tutorials/signalr?view=aspnetcore-9.0&tabs=visual-studio
 https://github.com/aspnet/SignalR-samples/tree/main/ChatSample
+
+Authentication, Login, Cookies, JWT, Identity
+https://stackoverflow.com/questions/549/the-definitive-guide-to-form-based-website-authentication
+https://www.reddit.com/r/dotnet/comments/we9qx8/a_comprehensive_overview_of_authentication_in/
+https://learn.microsoft.com/en-us/aspnet/identity/overview/getting-started/introduction-to-aspnet-identity
+128. What Authentication System Should I Use For My App? https://www.youtube.com/watch?v=4BItolSqIyU
+https://www.reddit.com/r/dotnet/comments/1cwt4xf/authentication_and_authorization_further_confusion/
+Authentication made easy with ASP.NET Core Identity in .NET 8 https://www.youtube.com/watch?v=S0RSsHKiD6Y
+Basics Part 1: Introduction to ASP.NET Core Authentication & Authorization https://www.youtube.com/watch?v=02Yh3sxzAYI
+ASP.NET Core Authentication (.NET 7 Minimal Apis C#) https://www.youtube.com/playlist?list=PLOeFnOV9YBa4yaz-uIi5T4ZW3QQGHJQXi
+Setting up JWT support (Authentication) | ASP.NET Core 5 REST API Tutorial 9 https://www.youtube.com/watch?v=M6AkbBaDGJE&list=PLUOequmGnXxOgmSDWU7Tl6iQTsOtyjtwU&index=11
+https://code-maze.com/asp-net-core-identity-series/

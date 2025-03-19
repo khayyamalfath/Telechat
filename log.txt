@@ -5,6 +5,7 @@ Updated temp schema for TelechatDevelopment (3)
 	Deleted Username field from Messages table
 	Added UserId field to Messages table
 	Added foreign key in Messages table (Users table)
+Research on "Authentication, Login, Cookies, JWT, Identity"
 
 tue 18 mar 2025
 Renamed user in username
