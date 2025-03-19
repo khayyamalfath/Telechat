@@ -1,3 +1,5 @@
+-- Renamed column name in Messages table from Message to MessageText
+
 SHOW DATABASES;
 CREATE DATABASE TelechatDevelopment;
 USE TelechatDevelopment;
