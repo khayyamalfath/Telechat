@@ -1,21 +1,20 @@
 to do
-
-Frontend
-Logs
-Authentication and log in
-Authorization and permissions
-Rooms
-Sounds
-Notifications
-Pictures
-Audio
-Write documentation (BE, FE, DB?)
+- Input validation
+- Frontend
+- Logs
+- Authentication and log in
+- Authorization and permissions
+- Rooms
+- Sounds
+- Notifications
+- Pictures
+- Audio
+- Write documentation (BE, FE, DB?)
 
 done
-
-Real time communication (local)
-message timestamp (local for client and utc for server)
-DB (Maria)
-Real time communication (db)
-Message History
-Rename field "Message" to "MessageText" in TelechatDevelopment (DB)
+- Real time communication (local)
+- message timestamp (local for client and utc for server)
+- DB (Maria)
+- Real time communication (db)
+- Message History
+- Rename field "Message" to "MessageText" in TelechatDevelopment (DB)

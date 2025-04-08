@@ -12,7 +12,18 @@ builder.Services.AddSignalR();
 
 var app = builder.Build();
 
-app.UseDefaultFiles();
+// Trying to redirect from index.html to login.html
+//app.MapGet("/", context =>
+//{
+//    context.Response.Redirect("/login.html");
+//    return Task.CompletedTask;
+//});
+
+app.UseDefaultFiles(new DefaultFilesOptions
+{
+    DefaultFileNames = new List<string> { "login.html" }
+});
+
 app.UseStaticFiles();
 //app.MapStaticAssets();
 

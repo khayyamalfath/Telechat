@@ -1,5 +1,12 @@
 ﻿"use strict";
 
+var savedUsername = localStorage.getItem("savedUsername");
+if (!savedUsername) {
+    window.location.href = "index.html";
+} else {
+    document.getElementById("userInput").value = savedUsername;
+}
+
 // Creates SignalR connection 
 var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 
@@ -52,10 +59,10 @@ connection.start().then(function () {
 document.getElementById("sendButton").addEventListener("click", function (event) {
     /* Sends a message on button press */
 
-    var user = document.getElementById("userInput").value;
+    var username = savedUsername;
     var messageText = document.getElementById("messageInput").value;
 
-    connection.invoke("SendMessage", user, messageText).catch(function (err) {
+    connection.invoke("SendMessage", username, messageText).catch(function (err) {
         return console.error(err.toString());
     });
 
