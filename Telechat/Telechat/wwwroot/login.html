@@ -7,24 +7,20 @@
 </head>
 <body>
     <div class="container">
-        <h2>Login</h2>
+        <h2>Login or Register</h2>
+
         <p>Username:</p>
         <input type="text" id="usernameInput" placeholder="Username" />
-        <button onclick="enterChat()">Login</button>
+
+        <p>Password:</p>
+        <input type="password" id="passwordInput" placeholder="Password" />
+
+        <div>
+            <button onclick="login()">Login</button>
+            <button onclick="register()">Register</button>
+        </div>
     </div>
 
-    <script>
-        function enterChat() {
-            const username = document.getElementById("usernameInput").value.trim();
-            if (!username) {
-                alert("Validation error");
-                return;
-            }
-            // Salva nel localStorage
-            localStorage.setItem("savedUsername", username);
-            // Vai alla chat
-            window.location.href = "Telechat.html";
-        }
-    </script>
+    <script src="js/login.js"></script>
 </body>
 </html>

@@ -29,3 +29,6 @@ Basics Part 1: Introduction to ASP.NET Core Authentication & Authorization https
 ASP.NET Core Authentication (.NET 7 Minimal Apis C#) https://www.youtube.com/playlist?list=PLOeFnOV9YBa4yaz-uIi5T4ZW3QQGHJQXi
 Setting up JWT support (Authentication) | ASP.NET Core 5 REST API Tutorial 9 https://www.youtube.com/watch?v=M6AkbBaDGJE&list=PLUOequmGnXxOgmSDWU7Tl6iQTsOtyjtwU&index=11
 https://code-maze.com/asp-net-core-identity-series/
+
+Vulnerabilities
+https://en.wikipedia.org/wiki/Timing_attack

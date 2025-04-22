@@ -2,14 +2,13 @@ to do
 - Input validation
 - Frontend
 - Logs
-- Authentication and log in
 - Authorization and permissions
 - Rooms
 - Sounds
 - Notifications
 - Pictures
 - Audio
-- Write documentation (BE, FE, DB?)
+- Write documentation (BE, FE)
 - Antispam
 
 done
@@ -19,3 +18,4 @@ done
 - Real time communication (db)
 - Message History
 - Rename field "Message" to "MessageText" in TelechatDevelopment (DB)
+- Authentication and log in

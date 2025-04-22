@@ -1,7 +1,9 @@
 ﻿"use strict";
 
 var savedUsername = localStorage.getItem("savedUsername");
-if (!savedUsername) {
+var savedUserId = localStorage.getItem("savedUserId");
+
+if (!savedUsername || !savedUserId) {
     window.location.href = "index.html";
 } else {
     document.getElementById("userInput").value = savedUsername;
@@ -59,10 +61,10 @@ connection.start().then(function () {
 document.getElementById("sendButton").addEventListener("click", function (event) {
     /* Sends a message on button press */
 
-    var username = savedUsername;
     var messageText = document.getElementById("messageInput").value;
+    var userId = parseInt(savedUserId, 10)
 
-    connection.invoke("SendMessage", username, messageText).catch(function (err) {
+    connection.invoke("SendMessage", userId, messageText).catch(function (err) {
         return console.error(err.toString());
     });
 
