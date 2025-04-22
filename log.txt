@@ -15,7 +15,12 @@ tue 22 apr 2025
 	- Added User.cs
 	- Added GetUsernamesByIdsAsync to MessageService.cs
 - Added event listener for "Enter" key in Telechat.js
-- Fixed inputBox behavior in Telechat.js (did not get cleared on send event)
+- Fixed input box behavior in Telechat.js (did not get cleared on send event)
+- Separated login and registration logic
+	- Added register.html
+	- Added register.js
+	- Edited login.html
+	- Edited login.js
 
 tue 8 apr 2025
 - Added temporary login (no auth yet)

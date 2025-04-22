@@ -36,3 +36,5 @@ hash
 https://en.wikipedia.org/wiki/Timing_attack
 rainbow table?
 salt?
+BCrypt.Net
+PasswordHasher

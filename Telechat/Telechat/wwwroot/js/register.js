@@ -1,19 +1,17 @@
-﻿async function login() {
+﻿async function register() {
     const username = document.getElementById("usernameInput").value.trim();
     const password = document.getElementById("passwordInput").value.trim();
 
-    const response = await fetch("/api/login", {
+    const response = await fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password })
     });
 
     if (response.ok) {
-        const userId = await response.json();
-        localStorage.setItem("savedUsername", username);
-        localStorage.setItem("savedUserId", userId);
-        window.location.href = "Telechat.html";
+        alert("Registration successful. You can now login.");
+        window.location.href = "login.html";  // Redirect to login page after successful registration
     } else {
-        alert("Login failed");
+        alert("Username already taken.");
     }
 }
