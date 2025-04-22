@@ -17,7 +17,7 @@ document.getElementById("sendButton").disabled = true;
 
 /* Functions */
 function addMessageToChat(username, messageText, sentAt) {
-    /* Adds message to chat */
+    // Adds message to chat
 
     var li = document.createElement("li");
 
@@ -33,13 +33,13 @@ function addMessageToChat(username, messageText, sentAt) {
 
 /* SignalR events */
 connection.on("ReceiveMessage", function (username, messageText, sentAt) {
-    /* Handles messages receiving */
+    // Handles messages receiving
 
     addMessageToChat(username, messageText, sentAt);
 });
 
 connection.on("LoadMessages", function (messages) {
-    /* Handles messages loading */
+    // Handles messages loading
 
     messages.forEach(msg => {
         addMessageToChat(msg.username, msg.messageText, msg.sentAt);
@@ -47,7 +47,7 @@ connection.on("LoadMessages", function (messages) {
 });
 
 connection.start().then(function () {
-    /* Starts SignalR connection */
+    // Starts SignalR connection
 
     document.getElementById("sendButton").disabled = false;
     connection.invoke("LoadPreviousMessages").catch(function (err) {
@@ -58,8 +58,9 @@ connection.start().then(function () {
 });
 
 /* User events */
+
 document.getElementById("sendButton").addEventListener("click", function (event) {
-    /* Sends a message on button press */
+    // Sends a message on button click
 
     var messageText = document.getElementById("messageInput").value;
     var userId = parseInt(savedUserId, 10)
@@ -68,5 +69,16 @@ document.getElementById("sendButton").addEventListener("click", function (event)
         return console.error(err.toString());
     });
 
+    document.getElementById("messageInput").value = "";
+
     event.preventDefault();
+});
+
+document.getElementById("messageInput").addEventListener("keydown", function (event) {
+    // Sends a message on pressing Enter key
+
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("sendButton").click();
+    }
 });

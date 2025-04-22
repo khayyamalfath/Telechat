@@ -4,16 +4,18 @@ tue 22 apr 2025
 	- Moved Telechat.css
 	- Edited Telechat.html
 	- Edited login.html
-- Added auth
-- Edited login.html (handles registration as well for now)
-- Added login.js (same as above)
-- Edited Telechat.js
-- Changed reference in Telechat.js ChatHub.cs, MessageService.cs from "username"  to "userId"
-- Added UserService.cs
-- Added GetUsernameByIdAsync to MessageService.cs
-- Fixed Message.cs
-- Added User.cs
-- Added GetUsernamesByIdsAsync to MessageService.cs
+- Added basic auth
+	- Edited login.html (handles registration as well for now)
+	- Added login.js (same as above)
+	- Edited Telechat.js
+	- Changed reference in Telechat.js ChatHub.cs, MessageService.cs from "username"  to "userId"
+	- Added UserService.cs
+	- Added GetUsernameByIdAsync to MessageService.cs
+	- Fixed Message.cs
+	- Added User.cs
+	- Added GetUsernamesByIdsAsync to MessageService.cs
+- Added event listener for "Enter" key in Telechat.js
+- Fixed inputBox behavior in Telechat.js (did not get cleared on send event)
 
 tue 8 apr 2025
 - Added temporary login (no auth yet)

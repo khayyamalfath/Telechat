@@ -31,4 +31,8 @@ Setting up JWT support (Authentication) | ASP.NET Core 5 REST API Tutorial 9 htt
 https://code-maze.com/asp-net-core-identity-series/
 
 Vulnerabilities
+sql injection
+hash
 https://en.wikipedia.org/wiki/Timing_attack
+rainbow table?
+salt?

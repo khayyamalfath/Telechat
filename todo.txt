@@ -10,6 +10,8 @@ to do
 - Audio
 - Write documentation (BE, FE)
 - Antispam
+- Check that auth is as secure as possible
+- Check same behavior in Firefox and Google Chrome
 
 done
 - Real time communication (local)
