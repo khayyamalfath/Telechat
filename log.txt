@@ -1,5 +1,11 @@
 log
-tue 8 apr  2025
+tue 22 apr 2025
+- Added /css
+- Moved Telechat.css
+- Edited Telechat.html
+- Edited login.html
+
+tue 8 apr 2025
 - Added temporary login (no auth yet)
 	- Renamed index.html in Telechat.html
 	- Created new index.html

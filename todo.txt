@@ -10,6 +10,7 @@ to do
 - Pictures
 - Audio
 - Write documentation (BE, FE, DB?)
+- Antispam
 
 done
 - Real time communication (local)
