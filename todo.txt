@@ -13,8 +13,10 @@ to do
 - Check that auth is as secure as possible
 - Check same behavior in Firefox and Google Chrome
 - Error handling
-- Separation between Service and DataAccess
 - Remove LINQ
+
+in progress
+- Separation between Service and DataAccess
 
 done
 - Real time communication (local)

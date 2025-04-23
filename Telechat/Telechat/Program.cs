@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity.Data;
+using Telechat.DataAccess;
 using Telechat.Hubs;
 using Telechat.Services;
 
@@ -9,7 +10,8 @@ var connectionString = builder.Configuration.GetConnectionString("TelechatDevelo
 
 /* Services! */
 builder.Services.AddSingleton(new MessageService(connectionString));
-builder.Services.AddSingleton(new UserService(connectionString));
+builder.Services.AddScoped<IUserRepository>(sp => new UserRepository(connectionString));
+builder.Services.AddScoped<UserService>();
 builder.Services.AddSignalR();
 
 var app = builder.Build();

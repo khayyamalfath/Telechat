@@ -1,72 +1,43 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Security.Cryptography;
 using System.Text;
+using Telechat.DataAccess;
 using Telechat.Models;
 
 namespace Telechat.Services
 {
     public class UserService
     {
-        private readonly string _connectionString;
+        private readonly IUserRepository _userRepository;
 
-        public UserService(string connectionString)
+        public UserService(IUserRepository userRepository)
         {
-            _connectionString = connectionString;
+            _userRepository = userRepository;
         }
 
         public async Task<bool> RegisterAsync(string username, string password, string? email = null)
         {
-            // Saves user to DB if user does not exist else returns false
+            // Registers user
 
-            DateTime registeredAt = DateTime.UtcNow;
+            var passwordHash = ComputeSha256Hash(password);
 
-            using var connection = new MySqlConnection(_connectionString);
-            await connection.OpenAsync();
-
-            string passwordHash = ComputeSha256Hash(password);
-            string query = "INSERT INTO Users (Name, PasswordHash, Email, RegisteredAt) VALUES (@Name, @PasswordHash, @Email, @RegisteredAt)";
-
-            using var cmd = new MySqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@Name", username);
-            cmd.Parameters.AddWithValue("@PasswordHash", passwordHash);
-            cmd.Parameters.AddWithValue("@Email", (object)email ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@RegisteredAt", registeredAt);
-
-            try
+            var user = new User
             {
-                await cmd.ExecuteNonQueryAsync();
-                return true;
-            }
-            catch (MySqlException ex) when (ex.Number == 1062)
-            {
-                // Duplicate entry
+                Name = username,
+                PasswordHash = passwordHash,
+                Email = email,
+                RegisteredAt = DateTime.UtcNow
+            };
 
-                return false;
-            }
+            return await _userRepository.AddUserAsync(user);
         }
 
         public async Task<User?> LoginAsync(string username, string password)
         {
-            // Checks user against DB, returns true + Id if user exists else returns null
+            // Authenticates user
 
-            using var connection = new MySqlConnection(_connectionString);
-            await connection.OpenAsync();
-
-            string passwordHash = ComputeSha256Hash(password);
-            string query = "SELECT Id FROM Users WHERE Name = @Name AND PasswordHash = @PasswordHash";
-
-            using var cmd = new MySqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@Name", username);
-            cmd.Parameters.AddWithValue("@PasswordHash", passwordHash);
-
-            using var reader = await cmd.ExecuteReaderAsync();
-            if (await reader.ReadAsync())
-                return new User
-                {
-                    Id = reader.GetInt32(0)
-                };
-
-            return null;
+            var passwordHash = ComputeSha256Hash(password);
+            return await _userRepository.GetUserByCredentialsAsync(username, passwordHash);
         }
 
         private static string ComputeSha256Hash(string rawData)

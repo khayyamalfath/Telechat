@@ -15,8 +15,15 @@ wed 23 apr 2025
 	- Renamed GetMessagesAsync() in LoadPreviousMessagesAsync()
 	- Edited LoadPreviousMessagesAsync() to do a LEFT JOIN and loads all previous messages correctly (and with a single query)
 	- Added MessageWithUsername.cs in Models/
-- Restructure Models/
-	- Moved LoginRequest.cs and RegisterRequest.cs in Models/Auth/
+- Moved LoginRequest.cs and RegisterRequest.cs in Models/Auth/
+- Separation between Service and DataAccess (in progress)
+	- Added DataAccess/IUserRepository.cs
+	- Added DataAccess/UserRepository.cs
+	- Added AddUserAsync()
+	- Added GetUserByCredentialsAsync()
+	- Edited RegisterAsync()
+	- Edited LoginAsync()
+	- Edited Program.cs (Services!)
 
 tue 22 apr 2025
 - Added /css
