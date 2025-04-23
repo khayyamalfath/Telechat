@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Identity.Data;
 using Telechat.Hubs;
-using Telechat.Models;
 using Telechat.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -35,7 +34,7 @@ app.MapHub<ChatHub>("/chatHub");
 
 app.MapPost("/api/register", async (HttpContext context, UserService userService) =>
 {
-    var data = await context.Request.ReadFromJsonAsync<Telechat.Models.RegisterRequest>();
+    var data = await context.Request.ReadFromJsonAsync<Telechat.Models.Auth.RegisterRequest>();
     if (data == null || string.IsNullOrEmpty(data.Username) || string.IsNullOrEmpty(data.Password))
         return Results.BadRequest("Invalid input");
 
@@ -45,7 +44,7 @@ app.MapPost("/api/register", async (HttpContext context, UserService userService
 
 app.MapPost("/api/login", async (HttpContext context, UserService userService) =>
 {
-    var data = await context.Request.ReadFromJsonAsync<Telechat.Models.LoginRequest>();
+    var data = await context.Request.ReadFromJsonAsync<Telechat.Models.Auth.LoginRequest>();
     if (data == null || string.IsNullOrEmpty(data.Username) || string.IsNullOrEmpty(data.Password))
         return Results.BadRequest("Invalid input");
 

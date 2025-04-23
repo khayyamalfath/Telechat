@@ -14,10 +14,7 @@ to do
 - Check same behavior in Firefox and Google Chrome
 - Error handling
 - Separation between Service and DataAccess
-- Restructure Models
-- Check Reverse()
 - Remove LINQ
-
 
 done
 - Real time communication (local)
@@ -28,3 +25,4 @@ done
 - Authentication and log in
 - Registration
 - Fix "Unknown" Bug in LoadPreviousMessages()
+- Restructure models
