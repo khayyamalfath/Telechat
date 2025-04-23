@@ -10,6 +10,11 @@ wed 23 apr 2025
 	- Edited login.js
 	- Edited UserService.js
 	- Edited Program.cs
+- Fix LoadPreviousMessages()
+	- Deleted GetUsernamesByIdsAsync()
+	- Renamed GetMessagesAsync() in LoadPreviousMessagesAsync()
+	- Edited LoadPreviousMessagesAsync() to do a LEFT JOIN and loads all previous messages correctly (and with a single query)
+	- Added MessageWithUsername.cs in Models/
 
 tue 22 apr 2025
 - Added /css

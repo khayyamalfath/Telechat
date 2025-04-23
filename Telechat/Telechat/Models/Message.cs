@@ -9,4 +9,9 @@
         public DateTime SentAt { get; set; }
         public int UserId { get; set; }
     }
+
+    public class MessageWithUsername : Message
+    {
+        public string Username { get; set; } = "Unknown";
+    }
 }

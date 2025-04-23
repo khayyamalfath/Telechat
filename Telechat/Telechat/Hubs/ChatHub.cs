@@ -15,40 +15,27 @@ namespace Telechat.Hubs
 
         public async Task SendMessage(int userId, string messageText)
         {
-            /* Sends a message */
+            // Sends a message
             DateTime sentAt = DateTime.UtcNow;
             string username = await _messageService.GetUsernameByIdAsync(userId);
-
             await _messageService.SaveMessageAsync(userId, messageText, sentAt);
             await Clients.All.SendAsync("ReceiveMessage", username, messageText, sentAt);
         }
 
         public async Task LoadPreviousMessages()
         {
-            /* Loads previous messages */
+            // Loads previous messages
+            var messages = await _messageService.LoadPreviousMessagesAsync();
 
-            List<Message> messages = await _messageService.GetMessagesAsync(256);
-
-            // Estrai gli UserId dai messaggi
-            var userIds = messages.Select(m => m.UserId).Distinct().ToList();
-
-            // Recupera tutti gli username in una sola query
-            var users = await _messageService.GetUsernamesByIdsAsync(userIds);
-
-            // Crea un dizionario UserId -> Username
-            var userDict = users.ToDictionary(u => u.Id, u => u.Name);
-
-            // Crea una lista arricchita con gli username
-            var enrichedMessages = messages.Select(msg => new
+            var clientMessages = messages.Select(msg => new
             {
                 msg.Id,
                 msg.MessageText,
                 msg.SentAt,
-                Username = userDict.ContainsKey(msg.UserId) ? userDict[msg.UserId] : "Unknown"
+                username = msg.Username
             }).ToList();
 
-            // Invia i messaggi arricchiti al client
-            await Clients.Caller.SendAsync("LoadMessages", enrichedMessages);
+            await Clients.Caller.SendAsync("LoadMessages", clientMessages);
         }
     }
 }

@@ -33,23 +33,22 @@ namespace Telechat.Services
             }
         }
 
-        public async Task<List<Message>> GetMessagesAsync(int limit = 256)
+        public async Task<List<MessageWithUsername>> LoadPreviousMessagesAsync(int limit = 256)
         {
-            /* Gets previous messages from DB */
+            // Joins Messages with Users and gets list of all messages with the corresponding usernames
 
-            var messages = new List<Message>();
+            var messages = new List<MessageWithUsername>();
 
             using (var connection = new MySqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
 
-                //string query = @"SELECT Messages.Id, Messages.MessageText, Users.Name AS Username, Messages.SentAt 
-                //                    FROM Messages 
-                //                    JOIN Users ON Messages.UserId = Users.Id 
-                //                    ORDER BY Messages.SentAt DESC 
-                //                    LIMIT @Limit";
-
-                string query = "SELECT Id, MessageText, SentAt, UserId FROM Messages ORDER BY SentAt DESC LIMIT @Limit";
+                string query = @"
+                    SELECT Messages.Id, Messages.MessageText, Messages.SentAt, Messages.UserId, Users.Name as Username
+                    FROM Messages
+                    LEFT JOIN Users ON Messages.UserId = Users.Id
+                    ORDER BY Messages.SentAt ASC
+                    LIMIT @Limit";
 
                 using (var cmd = new MySqlCommand(query, connection))
                 {
@@ -59,19 +58,19 @@ namespace Telechat.Services
                     {
                         while (await reader.ReadAsync())
                         {
-                            messages.Add(new Message
+                            messages.Add(new MessageWithUsername
                             {
                                 Id = reader.GetInt64(0),
                                 MessageText = reader.GetString(1),
                                 SentAt = reader.GetDateTime(2),
-                                UserId = reader.GetInt32(3)
+                                UserId = reader.GetInt32(3),
+                                Username = reader.IsDBNull(4) ? "Unknown" : reader.GetString(4)
                             });
                         }
                     }
                 }
             }
 
-            messages.Reverse();
             return messages;
         }
 
@@ -86,31 +85,5 @@ namespace Telechat.Services
 
             return (string)(await cmd.ExecuteScalarAsync()) ?? "Unknown";
         }
-
-        public async Task<List<User>> GetUsernamesByIdsAsync(List<int> userIds)
-        {
-            var users = new List<User>();
-
-            using var connection = new MySqlConnection(_connectionString);
-            await connection.OpenAsync();
-
-            string query = "SELECT Id, Name FROM Users WHERE Id IN (@UserIds)";
-
-            using var cmd = new MySqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@UserIds", string.Join(",", userIds));
-
-            using var reader = await cmd.ExecuteReaderAsync();
-            while (await reader.ReadAsync())
-            {
-                users.Add(new User
-                {
-                    Id = reader.GetInt32(0),
-                    Name = reader.GetString(1)
-                });
-            }
-
-            return users;
-        }
-
     }
 }
