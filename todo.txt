@@ -12,6 +12,7 @@ to do
 - Antispam
 - Check that auth is as secure as possible
 - Check same behavior in Firefox and Google Chrome
+- Error handling
 
 done
 - Real time communication (local)
@@ -19,5 +20,5 @@ done
 - DB (Maria)
 - Real time communication (db)
 - Message History
-- Rename field "Message" to "MessageText" in TelechatDevelopment (DB)
 - Authentication and log in
+- Registration

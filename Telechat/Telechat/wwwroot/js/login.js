@@ -5,7 +5,10 @@
     const response = await fetch("/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({
+            Username: username,
+            Password: password
+        })
     });
 
     if (response.ok) {
@@ -14,6 +17,6 @@
         localStorage.setItem("savedUserId", userId);
         window.location.href = "Telechat.html";
     } else {
-        alert("Login failed");
+        alert("Login failed.");
     }
 }

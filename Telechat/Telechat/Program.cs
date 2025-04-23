@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity.Data;
 using Telechat.Hubs;
 using Telechat.Models;
 using Telechat.Services;
@@ -34,21 +35,21 @@ app.MapHub<ChatHub>("/chatHub");
 
 app.MapPost("/api/register", async (HttpContext context, UserService userService) =>
 {
-    var data = await context.Request.ReadFromJsonAsync<Dictionary<string, string>>();
-    if (data == null || !data.ContainsKey("username") || !data.ContainsKey("password"))
+    var data = await context.Request.ReadFromJsonAsync<Telechat.Models.RegisterRequest>();
+    if (data == null || string.IsNullOrEmpty(data.Username) || string.IsNullOrEmpty(data.Password))
         return Results.BadRequest("Invalid input");
 
-    var success = await userService.RegisterAsync(data["username"], data["password"]);
+    var success = await userService.RegisterAsync(data.Username, data.Password, data.Email);
     return success ? Results.Ok() : Results.Conflict("User already exists");
 });
 
 app.MapPost("/api/login", async (HttpContext context, UserService userService) =>
 {
-    var data = await context.Request.ReadFromJsonAsync<Dictionary<string, string>>();
-    if (data == null || !data.ContainsKey("username") || !data.ContainsKey("password"))
+    var data = await context.Request.ReadFromJsonAsync<Telechat.Models.LoginRequest>();
+    if (data == null || string.IsNullOrEmpty(data.Username) || string.IsNullOrEmpty(data.Password))
         return Results.BadRequest("Invalid input");
 
-    var user = await userService.LoginAsync(data["username"], data["password"]);
+    var user = await userService.LoginAsync(data.Username, data.Password);
 
     if (user == null)
         return Results.Unauthorized();

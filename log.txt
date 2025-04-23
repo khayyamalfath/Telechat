@@ -1,4 +1,16 @@
 log
+
+wed 23 apr 2025
+- Updated temp schema for TelechatDevelopment (4)
+- Added email field to registration
+	- Added LoginRequest.cs
+	- Added RegisterRequest.cs
+	- Edited model User.cs
+	- Edited register.js
+	- Edited login.js
+	- Edited UserService.js
+	- Edited Program.cs
+
 tue 22 apr 2025
 - Added /css
 	- Moved Telechat.css

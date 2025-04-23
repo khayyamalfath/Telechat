@@ -14,20 +14,23 @@ namespace Telechat.Services
             _connectionString = connectionString;
         }
 
-        public async Task<bool> RegisterAsync(string username, string password)
+        public async Task<bool> RegisterAsync(string username, string password, string? email = null)
         {
             // Saves user to DB if user does not exist else returns false
+
+            DateTime registeredAt = DateTime.UtcNow;
 
             using var connection = new MySqlConnection(_connectionString);
             await connection.OpenAsync();
 
             string passwordHash = ComputeSha256Hash(password);
-
-            string query = "INSERT INTO Users (Name, PasswordHash) VALUES (@Name, @PasswordHash)";
+            string query = "INSERT INTO Users (Name, PasswordHash, Email, RegisteredAt) VALUES (@Name, @PasswordHash, @Email, @RegisteredAt)";
 
             using var cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@Name", username);
             cmd.Parameters.AddWithValue("@PasswordHash", passwordHash);
+            cmd.Parameters.AddWithValue("@Email", (object)email ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@RegisteredAt", registeredAt);
 
             try
             {
@@ -50,8 +53,7 @@ namespace Telechat.Services
             await connection.OpenAsync();
 
             string passwordHash = ComputeSha256Hash(password);
-
-            string query = "SELECT Id, Name, PasswordHash FROM Users WHERE Name = @Name AND PasswordHash = @PasswordHash";
+            string query = "SELECT Id FROM Users WHERE Name = @Name AND PasswordHash = @PasswordHash";
 
             using var cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@Name", username);
@@ -61,9 +63,7 @@ namespace Telechat.Services
             if (await reader.ReadAsync())
                 return new User
                 {
-                    Id = reader.GetInt32(0),
-                    Name = reader.GetString(1),
-                    PasswordHash = reader.GetString(2)
+                    Id = reader.GetInt32(0)
                 };
 
             return null;
