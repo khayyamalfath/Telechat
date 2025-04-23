@@ -13,6 +13,11 @@ to do
 - Check that auth is as secure as possible
 - Check same behavior in Firefox and Google Chrome
 - Error handling
+- Separation between Service and DataAccess
+- Restructure Models
+- Check Reverse()
+- Remove LINQ
+- Unknown Bug
 
 done
 - Real time communication (local)
