@@ -1,4 +1,4 @@
-to do
+to do:
 - Input validation
 - Frontend
 - Logs
@@ -16,10 +16,10 @@ to do
 - Remove LINQ
 - Fix: you can be logged in with multiple users if you don't refresh your browser
 
-in progress
+in progress:
 - Separation between Service and DataAccess
 
-done
+done:
 - Real time communication (local)
 - message timestamp (local for client and utc for server)
 - DB (Maria)
