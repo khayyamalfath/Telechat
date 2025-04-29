@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Identity.Data;
 using Telechat.DataAccess;
 using Telechat.Hubs;
 using Telechat.Services;
@@ -12,6 +11,8 @@ var connectionString = builder.Configuration.GetConnectionString("TelechatDevelo
 builder.Services.AddSingleton(new MessageService(connectionString));
 builder.Services.AddScoped<IUserRepository>(sp => new UserRepository(connectionString));
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<IMessageRepository>(sp => new MessageRepository(connectionString));
+builder.Services.AddScoped<MessageService>();
 builder.Services.AddSignalR();
 
 var app = builder.Build();
@@ -40,7 +41,7 @@ app.MapPost("/api/register", async (HttpContext context, UserService userService
     if (data == null || string.IsNullOrEmpty(data.Username) || string.IsNullOrEmpty(data.Password))
         return Results.BadRequest("Invalid input");
 
-    var success = await userService.RegisterAsync(data.Username, data.Password, data.Email);
+    var success = await userService.AddUserAsync(data.Username, data.Password, data.Email);
     return success ? Results.Ok() : Results.Conflict("User already exists");
 });
 
@@ -50,7 +51,7 @@ app.MapPost("/api/login", async (HttpContext context, UserService userService) =
     if (data == null || string.IsNullOrEmpty(data.Username) || string.IsNullOrEmpty(data.Password))
         return Results.BadRequest("Invalid input");
 
-    var user = await userService.LoginAsync(data.Username, data.Password);
+    var user = await userService.GetUserByCredentialsAsync(data.Username, data.Password);
 
     if (user == null)
         return Results.Unauthorized();

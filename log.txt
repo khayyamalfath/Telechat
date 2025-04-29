@@ -1,5 +1,7 @@
 log
 
+mon 28 apr 2025
+
 wed 23 apr 2025
 - Updated temp schema for TelechatDevelopment (4)
 - Added email field to registration

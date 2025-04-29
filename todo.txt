@@ -14,6 +14,7 @@ to do
 - Check same behavior in Firefox and Google Chrome
 - Error handling
 - Remove LINQ
+- Fix: you can be logged in with multiple users if you don't refresh your browser
 
 in progress
 - Separation between Service and DataAccess

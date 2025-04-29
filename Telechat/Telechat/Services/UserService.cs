@@ -15,9 +15,9 @@ namespace Telechat.Services
             _userRepository = userRepository;
         }
 
-        public async Task<bool> RegisterAsync(string username, string password, string? email = null)
+        public async Task<bool> AddUserAsync(string username, string password, string? email = null)
         {
-            // Registers user
+            // Gets hash, sends credentials to db
 
             var passwordHash = ComputeSha256Hash(password);
 
@@ -32,9 +32,9 @@ namespace Telechat.Services
             return await _userRepository.AddUserAsync(user);
         }
 
-        public async Task<User?> LoginAsync(string username, string password)
+        public async Task<User?> GetUserByCredentialsAsync(string username, string password)
         {
-            // Authenticates user
+            // calculates hash, gets user Id
 
             var passwordHash = ComputeSha256Hash(password);
             return await _userRepository.GetUserByCredentialsAsync(username, passwordHash);
