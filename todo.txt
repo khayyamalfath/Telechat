@@ -29,3 +29,4 @@ done
 - Registration
 - Fix "Unknown" Bug in LoadPreviousMessages()
 - Restructure models
+- Endpoints separation
