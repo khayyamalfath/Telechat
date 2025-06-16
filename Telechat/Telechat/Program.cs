@@ -6,7 +6,7 @@ using Telechat.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 /* Database */
-var connectionString = builder.Configuration.GetConnectionString("TelechatDevelopment");
+var connectionString = builder.Configuration.GetConnectionString("TelechatDevelopmentLade");
 
 /* Services! */
 builder.Services.AddSingleton(new MessageService(connectionString));
