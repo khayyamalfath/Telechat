@@ -1,37 +1,106 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
+    <!-- meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/Telechat.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- page title -->
     <title>Telechat</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/icons/favicon.png">
+
+    <!-- CSS stylesheets -->
+    <link rel="stylesheet" href="css/Telechat.css?v=1.0.0">
 </head>
+
 <body>
-    <div class="container">
-        <div class="row p-1">
-            <div class="col-1">User</div>
-            <div class="col-5"><input type="text" id="userInput" disabled/></div>
-        </div>
-        <div class="row p-1">
-            <div class="col-1">Message</div>
-            <div class="col-5"><input type="text" class="w-100" id="messageInput" /></div>
-        </div>
-        <div class="row p-1">
-            <div class="col-6 text-end">
-                <input type="button" id="sendButton" value="Send Message" />
+    <main>
+
+        <!-- Page title -->
+        <h1>- TELECHAT -</h1>
+        
+        <div class="container">
+
+            <!-- Left column -->
+            <div class="leftColumn">
+
+                <!-- Room picker dropdown menu -->
+                <div class="rooms">
+                    <label for="rooms">Stanza</label>
+                    <select name="rooms" id="rooms">
+                        <option value="stanzaGenerale">Stanza Generale</option>
+                        <option value="stanzaMarl">Men always remember love</option>
+                        <option value="stanzaITS">ITS 2023-2025</option>
+                    </select>
+                </div>
+
+                <!-- Messages list -->
+                <div class="messagesList whiteBg">
+                    <ul id="messagesList"></ul>
+                </div>
+
+                <!-- User settings -->
+                <div class="userSettings">
+                    <label for="userInput">User</label>
+                    <input type="text" id="userInput" disabled/>
+                    <label for="userColor" class="colorLabel">Color</label>
+                    <input type="color" id="userColor" value="#00ffff" />
+                </div>
+
+                <!-- Message textarea -->
+                <div class="textarea">
+                    <textarea id="messageInput" class="whiteBg" placeholder="Type your message here" /></textarea>
+                    <input type="button" id="sendButton" value="Send" />
+                </div>
+
             </div>
-        </div>
-        <div class="row p-1">
-            <div class="col-6">
-                <hr />
+
+            <!-- Right column -->
+            <div class="rightColumn whiteBg">
+
+                <!-- List of rooms and their logged users -->
+                <div id="roomsList" class="whiteBg">
+
+                    <h3>- Stanza Generale -</h3>
+                    <ul>
+                        <li><span style="color: aqua;">daniel</span></li>
+                        <li>User 2</li>
+                        <li>User 3</li>
+                    </ul>
+
+                    <h3>- Men always remember love -</h3>
+                    <ul>
+                        <li>User 4</li>
+                        <li>User 5</li>
+                        <li>User 6</li>
+                    </ul>
+
+                    <h3>- ITS 2023-2025 -</h3>
+                    <ul>
+                        <li>User 4</li>
+                        <li>User 5</li>
+                        <li>User 6</li>
+                    </ul>
+
+                </div>
+
             </div>
+
         </div>
-        <div class="row p-1">
-            <div class="col-6">
-                <ul id="messagesList"></ul>
-            </div>
-        </div>
-    </div>
+
+    </main>
+</body>
+
+<!-- JavaScript -->
+<script src="js/signalr/dist/browser/signalr.js"></script>
+<script src="js/Telechat.js?v=1.0.0"></script>
+    
+</html>
+
+
 
     <!--<div id="container">
         <div id="chatBox">
@@ -53,8 +122,3 @@
             </div>
         </div>
     </div>-->
-
-    <script src="js/signalr/dist/browser/signalr.js"></script>
-    <script src="js/Telechat.js"></script>
-</body>
-</html>

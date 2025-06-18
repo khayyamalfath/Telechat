@@ -1,4 +1,195 @@
-﻿#chatBox {
+﻿*
+{
+  box-sizing: border-box;
+  color: aliceblue;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body
+{
+    background-image: url("../images/background.png");
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+}
+
+main
+{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+h1
+{
+    flex: 1;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
+.container 
+{
+    display: flex;
+    flex: 1 1 90%;
+    gap: 1rem;
+    padding: 0 1rem 1rem;
+    overflow: hidden;
+}
+
+.leftColumn
+{
+    display: flex;
+    flex: 4;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.rooms
+{
+    padding: 0.5rem;
+}
+
+.rooms label
+{
+    font-size: 1.2rem;
+}
+
+#rooms
+{
+    background-image: linear-gradient(whitesmoke, rgba(126, 126, 240, 0.664));
+    border-radius: 0;
+    flex-basis: auto;
+    font-size: 1.1rem;
+    margin-left: 1rem;
+    padding: 0.2rem;
+    width: 80%;
+}
+
+#rooms,
+#rooms option
+{
+    color: rgb(32, 15, 39);
+}
+
+.messagesList
+{
+    color: aqua;
+    flex: 9;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    overflow-y: scroll !important;        
+    padding: 1.5rem;
+}
+
+.messagesList li {
+    color: aqua;
+    list-style: none;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.userSettings,
+.textarea
+{
+    padding: 0.5rem;
+    overflow: hidden;
+}
+
+.userSettings label
+{
+    font-size: 1.1rem;
+    padding: 0.5rem;
+}
+
+.colorLabel
+{
+    position: relative;
+    bottom: 1.5px;
+}
+
+
+.userSettings input[type="text"]
+{
+    color: aqua;
+    font-size: 1.2rem;
+    padding: 0.2rem 0.6rem;
+    width: fit-content;
+}
+
+.userSettings input[type="color"]
+{
+    border-color: black;
+    height: 20px;
+    width: 30px;
+}
+
+.textarea
+{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.textarea textarea 
+{
+    border: 1px solid #ccc;
+    color: aqua;
+    font-size: 1rem;
+    line-height: 1.4;
+    min-height: 3rem;
+    max-height: 80vh;
+    padding: 1rem;
+    resize: none;
+    width: 95%;
+}
+
+.textarea input[type="button"]
+{
+    background-image: linear-gradient(whitesmoke, rgba(0, 0, 255, 0.664), whitesmoke);
+    border-radius: 40%;
+    color: white;
+    font-size: larger;
+    padding: 20px;
+}
+
+.rightColumn
+{
+    flex: 1;
+    padding: 0.5rem;
+    overflow: auto;
+}
+
+#roomsList
+{
+    border: 1px solid #ccc;
+    line-height: 1.5;
+    overflow: auto;
+    padding: 1rem;   
+}
+
+#roomsList h3
+{
+    font-size: 1.3rem;
+    padding: 0.5rem;
+}
+
+#roomsList li
+{
+    list-style: none;
+}
+
+.whiteBg
+{
+    background-color: #d3e4cd41;
+}
+
+
+
+/* #chatBox {
     display: grid;
     grid-template-columns: 200px auto 100px;
     gap: 1px;
@@ -11,4 +202,4 @@
     text-align: center;
     border: 1px solid black;
     min-height: 334px;
-}
+} */

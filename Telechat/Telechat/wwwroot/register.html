@@ -1,30 +1,53 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
+    <!-- meta tags -->
     <meta charset="utf-8" />
-    <title>Register</title>
-    <link rel="stylesheet" href="css/Telechat.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- page title -->
+    <title>Telechat - Register</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/icons/favicon.png">
+
+    <!-- CSS stylesheets -->
+    <link rel="stylesheet" href="css/Telechat.css?v=1.0.0">
+    <link rel="stylesheet" href="css/login.css?v=1.0.0">
 </head>
+
 <body>
-    <div class="container">
-        <h2>Register</h2>
+    <main>
 
-        <p>Username:</p>
-        <input type="text" id="usernameInput" placeholder="Username" />
+        <!-- Page title -->
+        <h1>- TELECHAT -</h1>
+    
+        <div class="container">
+            <div class="loginBox">
+                <h2>Register</h2>
 
-        <p>Password:</p>
-        <input type="password" id="passwordInput" placeholder="Password" />
+                <label for="usernameInput">Username:</label>
+                <input type="text" id="usernameInput" placeholder="Username" />
 
-        <p>Email (Not required):</p>
-        <input type="email" id="emailInput" placeholder="Email" />
+                <label for="passwordInput">Password:</label>
+                <input type="password" id="passwordInput" placeholder="Password" />
 
-        <div>
-            <button onclick="register()">Register</button>
-            <br />
-            <p><a href="login.html">Login</a></p>
+                <label for="emailInput">Email (Not required):</label>
+                <input type="email" id="emailInput" placeholder="Email" />
+
+                <div class="loginButton">
+                    <input type="button" onclick="register()" value="Register"></button>
+                    <a href="login.html">Login</a>
+                </div>
+            </div>
+
         </div>
-    </div>
 
-    <script src="js/register.js"></script>
+    </main>
 </body>
+    
+    <!-- JavaScript -->
+    <script src="js/register.js?v=1.0.0"></script>
+
 </html>
